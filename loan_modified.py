@@ -18,7 +18,7 @@ le_self_employed.classes_ = np.array(['No', 'Yes'])
 st.title("🏦 Loan Approval Prediction System")
 
 # Add an image in the sidebar
-st.sidebar.image(r"C:\Users\vansh\OneDrive\Desktop\loan_modified\loan_image.jpg", caption="Loan Prediction System", use_column_width=True)  # Change filename as needed
+st.sidebar.image(r"C:\Users\vansh\OneDrive\Desktop\loan_modified\loan_image.jpg", caption="Loan Prediction System", use_container_width=True)  # Change filename as needed
 
 st.sidebar.markdown("### Enter details to check loan approval status.")
 
