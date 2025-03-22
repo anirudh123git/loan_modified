@@ -77,7 +77,7 @@ if st.button("Predict Loan Status"):
     threshold = 0.5  
     prediction = "Approved" if prob[1] > threshold else "Rejected"
 
-    st.write(f"Approval Probability: {prob[1]:.2f}")
+   # st.write(f"Approval Probability: {prob[1]:.2f}")
     st.success(f"Loan Status: {prediction}")
 
      
