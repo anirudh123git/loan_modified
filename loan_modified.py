@@ -24,7 +24,7 @@ st.sidebar.markdown("### Enter details to check loan approval status.")
 
 # Label Encoder for loan_status (to decode predictions)
 loan_status_encoder = LabelEncoder()
-loan_status_encoder.classes_ = np.array(['Approved', 'Rejected'])
+loan_status_encoder.classes_ = np.array(['Rejected', 'Approved'])
 
 # Streamlit App Title
 st.title("Loan Approval Prediction System")
@@ -65,4 +65,4 @@ input_features = np.array([
 if st.button("Predict Loan Status"):
     prediction = random_forest_model.predict(input_features)
     predicted_status = loan_status_encoder.inverse_transform(prediction)
-    st.success(f"Loan Status: {predicted_status[1]}")
+    st.success(f"Loan Status: {predicted_status[0]}")
