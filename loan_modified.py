@@ -60,10 +60,12 @@ input_features = np.array([
     luxury_assets_value,
     bank_asset_value
 ]).reshape(1, -1)
+input_df = pd.DataFrame(input_features, columns=X_train.columns)  
+
 
 # Predict button
 if st.button("Predict Loan Status"):
-    prediction = random_forest_model.predict(input_features)
+    prediction = random_forest_model.predict(input_df)
     predicted_status = loan_status_encoder.inverse_transform(prediction)
     st.success(f"Loan Status: {predicted_status[0]}")
      
