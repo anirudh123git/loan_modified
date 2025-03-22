@@ -64,7 +64,7 @@ input_features = np.array([
     luxury_assets_value,
     bank_asset_value
 ]).reshape(1, -1)
-input_df = pd.DataFrame(input_features, feature_names)  
+input_df = pd.DataFrame(input_features, columns=feature_names)  
 
 
 # Predict button
