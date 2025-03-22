@@ -8,6 +8,9 @@ from sklearn.preprocessing import LabelEncoder
 model_path = 'random_forest_model.pkl'
 with open(model_path, 'rb') as file:
     random_forest_model = pickle.load(file)
+feature_path = "feature_names.pkl"
+with open(feature_path, "rb") as f:
+    feature_names = pickle.load(f)
 
 # Label Encoders for categorical features
 le_education = LabelEncoder()
@@ -25,7 +28,7 @@ st.sidebar.markdown("### Enter details to check loan approval status.")
 
 # Label Encoder for loan_status (to decode predictions)
 loan_status_encoder = LabelEncoder()
-loan_status_encoder.classes_ = np.array(['Approved', 'Approved'])
+loan_status_encoder.classes_ = np.array(['Rejected', 'Approved'])
 
 # Streamlit App Title
 st.title("Loan Approval Prediction System")
@@ -61,7 +64,7 @@ input_features = np.array([
     luxury_assets_value,
     bank_asset_value
 ]).reshape(1, -1)
-input_df = pd.DataFrame(input_features, columns=X_train.columns)  
+input_df = pd.DataFrame(input_features, feature_names)  
 
 
 # Predict button
