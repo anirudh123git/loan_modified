@@ -65,4 +65,4 @@ input_features = np.array([
 if st.button("Predict Loan Status"):
     prediction = random_forest_model.predict(input_features)
     predicted_status = loan_status_encoder.inverse_transform(prediction)
-    st.success(f"Loan Status: {predicted_status[0]}")
+    st.success(f"Loan Status: {predicted_status[1]}")
