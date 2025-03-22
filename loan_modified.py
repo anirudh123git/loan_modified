@@ -68,8 +68,16 @@ input_df = pd.DataFrame(input_features, columns=feature_names)
 
 
 # Predict button
-if st.button("Predict Loan Status"):
+'''if st.button("Predict Loan Status"):
     prediction = random_forest_model.predict(input_df)
     predicted_status = loan_status_encoder.inverse_transform(prediction)
-    st.success(f"Loan Status: {predicted_status[0]}")
+    st.success(f"Loan Status: {predicted_status[0]}")'''
+if st.button("Predict Loan Status"):
+    prob = random_forest_model.predict_proba(input_df)[0]  # Get probability scores
+    threshold = 0.4  # Adjust if needed
+    prediction = "Approved" if prob[1] > threshold else "Rejected"
+
+    st.write(f"Approval Probability: {prob[1]:.2f}")
+    st.success(f"Loan Status: {prediction}")
+
      
