@@ -74,7 +74,7 @@ input_df = pd.DataFrame(input_features, columns=feature_names)
    # st.success(f"Loan Status: {predicted_status[0]}")'''
 if st.button("Predict Loan Status"):
     prob = random_forest_model.predict_proba(input_df)[0] 
-    threshold = 0.3
+    threshold = 0.01
     prediction = "Approved" if prob[1] > threshold else "Rejected"
 
    # st.write(f"Approval Probability: {prob[1]:.2f}")
